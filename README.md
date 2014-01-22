@@ -17,7 +17,11 @@ Requirements
 Install
 -------
 
-* bundle install
+* `bundle install --without test development` from the project directory
+
+OR
+
+* bundle install (for developers)
 
 Run it!
 -------

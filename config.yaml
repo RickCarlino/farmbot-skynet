@@ -1,4 +1,4 @@
 #THIS IS THE CONFIG FILE.
 # Put application specific settings here.
 ---
-ip: 127.0.0.1
+skynet_url: 127.0.0.1
