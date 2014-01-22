@@ -1,7 +1,7 @@
 farmbot-skynet
 ===========
 
-A ruby library to control (https://github.com/FarmBot/farmbot-controller)[Farmbot Controller] over (http://skynet.im)[SkyNet].
+This is a Ruby library that interface the Farmbot driver into http://skynet.im
 
 Features
 --------
