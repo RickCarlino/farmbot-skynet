@@ -1,36 +1,35 @@
 farmbot-skynet
 ===========
 
-A ruby library to control [https://github.com/FarmBot/farmbot-controller](Farmbot Controller) over [http://skynet.im](SkyNet).
+A ruby library to control (https://github.com/FarmBot/farmbot-controller)[Farmbot Controller] over (http://skynet.im)[SkyNet].
 
 Features
 --------
 
  * It's got websockets and stuff.
 
-Examples
---------
-
-    FIXME (code sample of usage)
-
 Requirements
 ------------
 
 * Raspberry pi running Ruby.
+* A complete Farmbot assembly
 
 Install
 -------
 
-* gem install farmbot-skynet
+* bundle install
+
+Run it!
+-------
+
+ * `ruby farmbot.rb`
 
 Author
 ------
 
-Original author: Rick Carlino
+ * Rick Carlino
 
-Contributors:
-
-* Tim Evers
+ * Tim Evers
 
 License
 -------
