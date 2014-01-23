@@ -17,3 +17,4 @@ Gemfile.lock
 .ruby-version
 .ruby-gemset
 snippets.rb
+config.yaml

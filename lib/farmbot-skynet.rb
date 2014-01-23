@@ -1,2 +1,1 @@
-require_relative 'config'
-require_relative 'web_socket_connection'
+require_relative 'socket/socket_connection'
