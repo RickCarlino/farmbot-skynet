@@ -1,9 +1,4 @@
 module SocketEvents
-  module ClassMethods
-  end
-
-  module InstanceMethods
-
     def create_socket_connection
       @connection = SocketIO::Client::Simple.connect 'http://skynet.im:80'
     end
@@ -17,10 +12,4 @@ module SocketEvents
         @connection.on(event){|data| self.send(method_name, data)}
       end
     end
-  end
-  
-  def self.included(receiver)
-    receiver.extend         ClassMethods
-    receiver.send :include, InstanceMethods
-  end
 end
