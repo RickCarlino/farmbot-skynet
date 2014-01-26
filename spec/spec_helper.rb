@@ -1,4 +1,5 @@
-require 'rubygems'
+require 'simplecov'
+SimpleCov.start
 require 'rspec'
 
 require File.expand_path('../../lib/farmbot-skynet', __FILE__)

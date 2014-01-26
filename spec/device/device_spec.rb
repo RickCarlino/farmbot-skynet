@@ -12,4 +12,11 @@ describe Device do
     end
   end
 
+  describe '#uuid' do
+    it 'returns a valid UUID'
+  end
+
+  describe '#token' do
+    it 'returns a valid token'
+  end
 end
