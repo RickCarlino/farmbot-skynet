@@ -28,7 +28,7 @@ module Credentials
       @uuid  = SecureRandom.uuid
       @token = SecureRandom.hex
       yaml   = {uuid: @uuid, token: @token}.to_yaml
-      File.open(credentials_file, 'w+') {|f| f.write(yaml) }
+      File.open(credentials_file, 'w+') {|file| file.write(yaml) }
   end
 
   def load_credentials
