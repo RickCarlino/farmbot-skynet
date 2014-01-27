@@ -17,5 +17,6 @@ Gemfile.lock
 .ruby-version
 .ruby-gemset
 snippets.rb
+snippet.coffee
 config.yml
 credentials.yml

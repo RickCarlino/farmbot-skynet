@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Device do
 
   let(:device) do
-    Device.new()
+    Device.new
   end
 
   describe '#new' do

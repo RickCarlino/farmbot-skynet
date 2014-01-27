@@ -1,5 +1,6 @@
-module Credentials
+require 'securerandom'
 
+module Credentials
   def credentials_file
     'credentials.yml'
   end
@@ -22,13 +23,14 @@ module Credentials
   end
 
   def create_credentials
-      warn 'WARNING: Credentials were either not found or did not contain '\
-           'valid information. A new set of credentials will now be created.'\
-           'any credentials that existed in credentials.yml will be overwriten'
+      puts "[#{Time.now.to_s}] Warning!! Credentials.yml not found. Creating a"\
+        "new set of credentials now."
       @uuid  = SecureRandom.uuid
       @token = SecureRandom.hex
+      `curl -X POST -d "uuid=#{@uuid}&token=#{@token}&type=farmbot" http://skynet.im/devices`
       yaml   = {uuid: @uuid, token: @token}.to_yaml
       File.open(credentials_file, 'w+') {|file| file.write(yaml) }
+      return {uuid: @uuid, token: @token}
   end
 
   def load_credentials
