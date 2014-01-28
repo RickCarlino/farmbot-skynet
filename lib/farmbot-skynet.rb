@@ -4,15 +4,5 @@ require_relative 'device/device'
 # way to bind events to the Device object context
 $device = Device.new
 
-#Pass a 'dev' argument to run a console session
-if ARGV.include? "dev"
-  require 'pry'
-  binding.pry
-end
-
-loop do
-  # print 'Message >'
-  # msg = eval(gets.chomp)
-  # @device.socket.emit :message, {devices: 'all', message: msg}
-  sleep 0.5
-end
+#TODO: Daemonize this script: 
+#https://www.ruby-toolbox.com/categories/daemonizing

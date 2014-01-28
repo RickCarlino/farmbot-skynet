@@ -23,11 +23,9 @@ module Credentials
   end
 
   def create_credentials
-      puts "[#{Time.now.to_s}] Warning!! Credentials.yml not found. Creating a"\
-        "new set of credentials now."
       @uuid  = SecureRandom.uuid
       @token = SecureRandom.hex
-      `curl -X POST -d "uuid=#{@uuid}&token=#{@token}&type=farmbot" http://skynet.im/devices`
+      `curl -s -X POST -d "uuid=#{@uuid}&token=#{@token}&type=farmbot" http://skynet.im/devices`
       yaml   = {uuid: @uuid, token: @token}.to_yaml
       File.open(credentials_file, 'w+') {|file| file.write(yaml) }
       return {uuid: @uuid, token: @token}

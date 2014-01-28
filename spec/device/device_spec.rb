@@ -13,10 +13,14 @@ describe Device do
   end
 
   describe '#uuid' do
-    it 'returns a valid UUID'
+    it 'returns a valid UUID' do
+      expect(device.uuid).to be_kind_of(String)
+    end
   end
 
   describe '#token' do
-    it 'returns a valid token'
+    it 'returns a valid token' do
+      expect(device.token).to be_kind_of(String)
+    end
   end
 end
