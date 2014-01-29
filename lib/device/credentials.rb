@@ -15,20 +15,21 @@ module Credentials
 
   def valid_credentials?
     if File.file?(credentials_file)
-      #TODO: Memoize all of these file reads for efficiency / DRYness
-      cred = YAML.load(File.read(credentials_file))
+      cred = load_credentials
       return true if cred.has_key?(:uuid) && cred.has_key?(:token)
     end
     return false
   end
 
   def create_credentials
-      @uuid  = SecureRandom.uuid
-      @token = SecureRandom.hex
-      `curl -s -X POST -d "uuid=#{@uuid}&token=#{@token}&type=farmbot" http://skynet.im/devices`
-      yaml   = {uuid: @uuid, token: @token}.to_yaml
-      File.open(credentials_file, 'w+') {|file| file.write(yaml) }
-      return {uuid: @uuid, token: @token}
+    hash = {
+      uuid: (@uuid  = SecureRandom.uuid),
+      token: (@token = SecureRandom.hex)
+    }
+    `curl -s -X POST -d 'uuid=#{@uuid}&token=#{@token}&type=farmbot' \
+      http://skynet.im/devices`
+    File.open(credentials_file, 'w+') {|file| file.write(hash.to_yaml) }
+    return hash
   end
 
   def load_credentials

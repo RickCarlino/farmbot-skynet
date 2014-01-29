@@ -4,5 +4,5 @@ require_relative 'device/device'
 # way to bind events to the Device object context
 $device = Device.new
 
-#TODO: Daemonize this script: 
+#TODO: Daemonize this script:
 #https://www.ruby-toolbox.com/categories/daemonizing

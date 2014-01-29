@@ -37,8 +37,14 @@ describe Device do
 
   describe '#valid_credentials?' do
     it 'ensures presence of UUID' do
+      device.stub(:load_credentials) { {} }
+      expect(device.load_credentials.key?(:uuid)).to be_false
+      expect(device.valid_credentials?).to be_false
     end
     it 'ensures presence of token' do
+      device.stub(:load_credentials) { {} }
+      expect(device.load_credentials.key?(:token)).to be_false
+      expect(device.valid_credentials?).to be_false
     end
   end
 
@@ -48,6 +54,13 @@ describe Device do
     end
     it 'has a valid `token` key' do
       expect(device.credentials[:token]).to be_instance_of(String)
+    end
+
+    it 'creates a new set of credentials when invalid' do
+      old_creds = device.credentials
+      device.stub('valid_credentials?') { false }
+      new_creds = device.credentials
+      expect(old_creds).not_to eq(new_creds)
     end
   end
 

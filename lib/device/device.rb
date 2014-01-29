@@ -17,4 +17,12 @@ class Device
     create_socket_events
   end
 
+  def handle_message(channel, message)
+    message_hash = JSON.parse(message)
+    puts "Got a message on channel '#{channel}':"
+    puts message_hash.to_yaml + "\n"
+  rescue
+    raise 'Runtime error while attempting to parse message: #{message}.'
+  end
+
 end
